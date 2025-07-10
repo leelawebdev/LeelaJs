@@ -1,14 +1,19 @@
 {
   "name": "leelajs",
   "version": "1.0.0",
-  "description": "A simple Node.js utility library",
+  "description": "A lightweight, simple HTTP server framework for Node.js",
   "main": "leelaJs.js",
   "scripts": {
     "test": "echo \"No tests yet\""
   },
   "keywords": [
-    "utility",
+    "http",
+    "server",
+    "framework",
     "nodejs",
+    "web",
+    "middleware",
+    "routing",
     "leela"
   ],
   "author": "Leela Web Dev",
