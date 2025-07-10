@@ -13,6 +13,13 @@ class LeelaJS {
     this.middlewares = [];
     this.server = http.createServer();
     this.server.on('request', (req, res) => {
+      const url = new URL(req.url, `http://${req.headers.host}`);
+      req.pathname = url.pathname;
+      req.params = {
+        get: (key) => url.searchParams.get(key),
+        getAll: (key) => url.searchParams.getAll(key),
+        has: (key) => url.searchParams.has(key)
+      };
       res.sendFile = async (path, mimeType) => {
         const fileHandler = await fs.open(path, 'r');
         const fileStream = fileHandler.createReadStream();
@@ -33,14 +40,14 @@ class LeelaJS {
       };
 
       this.runMiddlewares(req, res, () => {
-        const routeKey = `${req.method.toLowerCase()}${req.url}`;
+        const routeKey = `${req.method.toLowerCase()}${req.pathname}`;
         const routeHandler = this.routes[routeKey];
 
         if (routeHandler) {
           routeHandler(req, res);
         } else {
           return res.status(404).json({
-            error: `Cannot ${req.method} ${req.url}`
+            error: `Cannot ${req.method} ${req.pathname}`
           });
         }
       });
