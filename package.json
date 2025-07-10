@@ -12,5 +12,13 @@
     "leela"
   ],
   "author": "Leela Web Dev",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leelawebdev/leelajs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leelawebdev/leelajs/issues"
+  },
+  "homepage": "https://github.com/leelawebdev/leelajs#readme"
 }
