@@ -1,0 +1,16 @@
+{
+  "name": "leelajs",
+  "version": "1.0.0",
+  "description": "A simple Node.js utility library",
+  "main": "leelaJs.js",
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": [
+    "utility",
+    "nodejs",
+    "leela"
+  ],
+  "author": "Leela Web Dev",
+  "license": "MIT"
+}
