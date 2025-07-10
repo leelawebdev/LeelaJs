@@ -88,6 +88,24 @@ server.beforeEach((req, res, next) => {
 });
 ```
 
+### Query Parameters
+
+Access URL query parameters using `req.params`:
+
+````javascript
+server.route('get', '/search', (req, res) => {
+  const query = req.params.get('q');        // Get single parameter
+  const tags = req.params.getAll('tag');    // Get array of values
+  const hasFilter = req.params.has('filter'); // Check if parameter exists
+
+  res.json({
+    searchQuery: query,
+    tags: tags,
+    hasFilter: hasFilter
+  });
+});
+
+
 **Examples:**
 
 ```javascript
@@ -105,7 +123,7 @@ server.beforeEach((req, res, next) => {
   }
   next();
 });
-```
+````
 
 ### Response Methods
 
