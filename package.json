@@ -1,6 +1,6 @@
 {
   "name": "leelajs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A lightweight, simple HTTP server framework for Node.js",
   "main": "leelaJs.js",
   "scripts": {
