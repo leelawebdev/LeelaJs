@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"No tests yet\""
   },
+  "type": "module",
   "keywords": [
     "http",
     "server",

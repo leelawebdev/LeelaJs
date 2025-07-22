@@ -1,14 +1,10 @@
-const http = require('node:http');
-const fs = require('node:fs/promises');
-const { Readable } = require('node:stream');
+import http from 'node:http';
+import fs from 'node:fs/promises';
+import { Readable } from 'node:stream';
+import { serveStatic } from './lib/static.js';
 
 class LeelaJS {
   constructor() {
-    /**
-     *
-     * [get/] = function
-     * [get/dsds] = function
-     */
     this.routes = {};
     this.middlewares = [];
     this.server = http.createServer();
@@ -80,4 +76,6 @@ class LeelaJS {
   }
 }
 
-module.exports = LeelaJS;
+LeelaJS.static = serveStatic;
+
+export default LeelaJS;
