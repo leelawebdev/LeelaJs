@@ -20,9 +20,12 @@ npm install leelajs
 ## 🚀 Quick Start
 
 ```javascript
-const LeelaJS = require('leelajs');
+import LeelaJS from 'leelajs';
 
 const server = new LeelaJS();
+
+// Serve static files from the "public" directory
+server.beforeEach(LeelaJS.static('./public'));
 
 // Define a simple route
 server.route('get', '/', (req, res) => {
@@ -32,8 +35,29 @@ server.route('get', '/', (req, res) => {
 // Start the server
 server.listen(3000, () => {
   console.log('Server running on port 3000');
+  console.log('Try: http://localhost:3000/index.html');
+  console.log('Try: http://localhost:3000/style.css');
+  console.log('Try: http://localhost:3000/api');
 });
 ```
+
+## 📁 Static File Serving
+
+Serve static files by adding the middleware:
+
+```javascript
+server.beforeEach(LeelaJS.static('./public'));
+```
+
+- All files in the `./public` directory will be accessible at the root URL.
+- Example: `/index.html` serves `./public/index.html`
+
+---
+
+**Tip:**  
+If you want to use CommonJS (`require`), you must use an older version or remove `"type": "module"` from your package.
+
+---
 
 ## 📚 API Documentation
 
